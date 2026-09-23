@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InfinitXLab Tech Institute | Bhubaneswar</title>
+<meta name="description" content="Project-first, mentor-led IT courses in Bhubaneswar. Offline and live-online batches led by Er. Soumyajit Rout.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#080D1A;--panel:#0F1729;--line:#1F2A44;--text:#E9EEFB;--mute:#8E9BB8;--mint:#2EE6A6;--amber:#FFB547}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font:400 1.05rem/1.6 "Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:5;background:rgba(8,13,26,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;text-decoration:none}
+.logo b{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--mint),#12A97B);color:var(--ink)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;color:var(--mute)}
+nav a:hover{color:var(--text)}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600}
+.btn.go{background:var(--mint);color:var(--ink)}
+.btn.alt{background:var(--amber);color:var(--ink)}
+.btn.ghost{border:1px solid var(--line);color:var(--text)}
+.btn:hover{transform:translateY(-2px)}
+nav .btn{padding:10px 20px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:calc(100vh - 72px)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:20px;min-height:calc(100vh - 72px - 56px);padding-top:40px;padding-bottom:40px}
+.tag{color:var(--mint);font-weight:600;margin-bottom:18px}
+h1{font-size:clamp(2.5rem,5.6vw,4.8rem);line-height:1.02;letter-spacing:-.035em;font-weight:800}
+.scene{display:block;height:1.06em;overflow:hidden;margin-top:6px;color:var(--mint)}
+.scene span{display:block;animation:up .5s cubic-bezier(.2,.8,.2,1)}
+.scene.i1{color:var(--amber)}.scene.i2{color:#7FD1FF}.scene.i3{color:var(--mint)}
+@keyframes up{from{transform:translateY(100%);opacity:0}to{transform:none;opacity:1}}
+.lead{color:var(--mute);max-width:33em;margin:22px 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.reel{display:flex;gap:6px;margin-top:38px;max-width:420px}
+.reel i{flex:1;height:4px;border-radius:4px;background:var(--line);position:relative;overflow:hidden}
+.reel i::after{content:"";position:absolute;inset:0;background:var(--mint);transform:scaleX(0);transform-origin:left}
+.reel i.done::after{transform:scaleX(1)}
+.reel i.on::after{animation:fill 2.2s linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.stage{position:relative;height:100%;min-height:380px}
+#inf{position:absolute;inset:0;width:100%;height:100%}
+.stage .tick{position:absolute;right:0;bottom:8px;color:var(--mute);font-size:.85rem}
+
+/* marquee */
+.belt{border-block:1px solid var(--line);overflow:hidden;background:var(--panel)}
+.belt div{display:flex;gap:48px;width:max-content;padding:16px 0;animation:belt 30s linear infinite;color:var(--mute);font-weight:600}
+.belt span::after{content:"\221E";margin-left:48px;color:var(--mint)}
+@keyframes belt{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+h2{font-size:clamp(1.9rem,3.6vw,3rem);letter-spacing:-.03em;line-height:1.08;font-weight:800;max-width:16em}
+.sub{color:var(--mute);max-width:36em;margin-top:14px}
+
+/* courses */
+#courses .list{margin-top:44px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1.1fr 1.4fr 1.2fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);transition:background .25s,padding .25s}
+.row:hover{background:linear-gradient(90deg,rgba(46,230,166,.07),transparent);padding-left:14px}
+.row h3{font-size:1.5rem;letter-spacing:-.02em}
+.row p{color:var(--mute)}
+.row .build{color:var(--text)}
+.row .build small{display:block;color:var(--amber);font-weight:600}
+
+/* mentor */
+#mentor{background:var(--panel);border-block:1px solid var(--line)}
+#mentor .wrap{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+.ring{width:240px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-size:5rem;font-weight:800;letter-spacing:-.04em;background:radial-gradient(circle at 30% 25%,#16233f,var(--ink));position:relative}
+.ring::before{content:"";position:absolute;inset:-8px;border-radius:50%;background:conic-gradient(var(--mint),var(--amber),#7FD1FF,var(--mint));-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));animation:spin 12s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.who{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.role{color:var(--mint);font-weight:600;margin:8px 0 16px}
+#mentor p{color:var(--mute);max-width:36em}
+#mentor .btn{margin-top:24px}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:48px}
+.why h3{font-size:1.3rem;margin-bottom:8px;padding-top:16px;border-top:3px solid var(--mint)}
+.why div:nth-child(2) h3{border-color:var(--amber)}
+.why div:nth-child(3) h3{border-color:#7FD1FF}
+.why p{color:var(--mute)}
+
+/* contact */
+#contact{background:linear-gradient(180deg,var(--ink),#0B1A2A)}
+#contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.phone{display:block;margin:22px 0 6px;font-size:clamp(2rem,4.4vw,3.4rem);font-weight:800;letter-spacing:-.03em;text-decoration:none;color:var(--mint)}
+form{display:grid;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px}
+label{display:grid;gap:6px;color:var(--mute);font-size:.95rem}
+input,select{font:inherit;color:var(--text);background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+footer{padding:28px 0;color:var(--mute);border-top:1px solid var(--line);font-size:.9rem}
+
+@media(max-width:860px){
+nav a:not(.btn){display:none}
+.hero .wrap{grid-template-columns:1fr}
+.stage{position:absolute;inset:0;opacity:.35;pointer-events:none}
+.stage .tick{display:none}
+.row,#mentor .wrap,#contact .wrap,.why{grid-template-columns:1fr}
+.row{gap:8px}
+.ring{width:170px;font-size:3.6rem}
+section{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){
+*{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+.reel i{background:var(--mint)}
+.scene{height:auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="logo" href="#top"><b>X</b>InfinitXLab</a>
+<nav aria-label="Main">
+<a href="#courses">Courses</a><a href="#why">Why us</a><a href="#contact">Contact</a>
+<a class="btn go" href="#contact">Book a free demo</a>
+</nav>
+</div>
+</header>
+
+<main id="top">
+<div class="hero">
+<div class="wrap">
+<div>
+<p class="tag">Bhubaneswar · offline and live-online batches</p>
+<h1>Skills that compound.<span class="scene" id="scene" aria-live="off"><span>Learn it.</span></span></h1>
+<p class="lead">InfinitXLab Tech Institute trains beginners and working professionals in the technologies companies are actually hiring for, through project-first, mentor-led batches.</p>
+<div class="cta">
+<a class="btn go" href="#contact">Book a free demo</a>
+<a class="btn ghost" href="tel:+919337789240">Call 9337789240</a>
+</div>
+<div class="reel" id="reel" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+</div>
+<div class="stage"><canvas id="inf" aria-hidden="true"></canvas><span class="tick">Learn → Build → Ship → Get hired</span></div>
+</div>
+</div>
+
+<div class="belt" aria-hidden="true"><div>
+<span>Java</span><span>Spring Boot</span><span>Python</span><span>React</span><span>SQL</span><span>Docker</span><span>AWS</span><span>Git</span><span>Linux</span><span>Data Analytics</span>
+<span>Java</span><span>Spring Boot</span><span>Python</span><span>React</span><span>SQL</span><span>Docker</span><span>AWS</span><span>Git</span><span>Linux</span><span>Data Analytics</span>
+</div></div>
+
+<section id="courses">
+<div class="wrap">
+<h2>Pick a track. Leave with something you built.</h2>
+<p class="sub">Every course ends in a project you can show in an interview. Batch timings are shared on your free demo call.</p>
+<div class="list">
+<div class="row"><h3>Java Full Stack</h3><p>Java, Spring Boot, React, MySQL</p><p class="build"><small>You build</small>A job-portal app with login, dashboards and an API</p></div>
+<div class="row"><h3>Python and Data Analytics</h3><p>Python, Pandas, SQL, Power BI</p><p class="build"><small>You build</small>A sales dashboard from raw business data</p></div>
+<div class="row"><h3>Web Development</h3><p>HTML, CSS, JavaScript, React</p><p class="build"><small>You build</small>Your portfolio and a live site for a real business</p></div>
+<div class="row"><h3>Cloud and DevOps</h3><p>Linux, Git, Docker, AWS</p><p class="build"><small>You build</small>An app deployed on a real cloud server</p></div>
+</div>
+</div>
+</section>
+
+<section id="mentor">
+<div class="wrap">
+<div class="ring" role="img" aria-label="Er. Soumyajit Rout">SR</div>
+<div>
+<h2 class="who">Er. Soumyajit Rout</h2>
+<p class="role">Lead mentor</p>
+<p>Every batch is led by him. Sessions are hands-on: you write the code, he reviews it, you fix it and ship it. Ask questions any time, no question is too basic.</p>
+<a class="btn alt" href="tel:+919337789240">Talk to your mentor: 9337789240</a>
+</div>
+</div>
+</section>
+
+<section id="why">
+<div class="wrap">
+<h2>Built for people who want a job, not a certificate.</h2>
+<div class="why">
+<div><h3>Project first</h3><p>You start building in week one and keep a portfolio that grows with every class.</p></div>
+<div><h3>Your code gets reviewed</h3><p>Your mentor reads what you write and tells you what to improve, line by line.</p></div>
+<div><h3>Attend your way</h3><p>Sit in class in Bhubaneswar or join the live-online batch. Beginners and working professionals are both welcome.</p></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap">
+<div>
+<h2>Book your free demo class.</h2>
+<a class="phone" href="tel:+919337789240">9337789240</a>
+<p class="sub" style="margin-top:0">Er. Soumyajit Rout, InfinitXLab Tech Institute, Bhubaneswar.</p>
+<div class="cta" style="margin-top:24px">
+<a class="btn go" href="https://wa.me/919337789240" target="_blank" rel="noopener">Chat on WhatsApp</a>
+<a class="btn ghost" href="tel:+919337789240">Call now</a>
+</div>
+</div>
+<form id="demo">
+<label>Your name<input name="n" required autocomplete="name"></label>
+<label>Phone number<input name="p" type="tel" required autocomplete="tel"></label>
+<label>Course<select name="c"><option>Java Full Stack</option><option>Python and Data Analytics</option><option>Web Development</option><option>Cloud and DevOps</option></select></label>
+<label>Mode<select name="m"><option>Offline in Bhubaneswar</option><option>Live online</option></select></label>
+<button class="btn go" type="submit">Send on WhatsApp</button>
+</form>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">© InfinitXLab Tech Institute, Bhubaneswar · Mentor: Er. Soumyajit Rout · 9337789240</div></footer>
+
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var scene=document.getElementById('scene'),segs=document.querySelectorAll('#reel i');
+var words=['Learn it.','Build it.','Ship it.','Get hired.'],k=0;
+function show(){
+scene.className='scene i'+k;
+scene.innerHTML='<span>'+words[k]+'</span>';
+segs.forEach(function(s,j){s.className=j<k?'done':(j===k?'on':'')});
+k=(k+1)%words.length;
+}
+if(reduce){scene.innerHTML='<span>'+words.join(' ')+'</span>'}else{show();setInterval(show,2200)}
+
+var c=document.getElementById('inf'),x=c.getContext('2d'),W,H,D=Math.min(window.devicePixelRatio||1,2),P=[],i;
+function size(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*D;c.height=H*D;x.setTransform(D,0,0,D,0,0);x.fillStyle='#080D1A';x.fillRect(0,0,W,H)}
+size();addEventListener('resize',size);
+for(i=0;i<170;i++)P.push({t:i/170*6.2832,s:.004+Math.random()*.005,r:1+Math.random()*1.9});
+function pt(t){var a=W*.46,d=1+Math.pow(Math.sin(t),2);return[W/2+a*Math.cos(t)/d,H/2+a*1.25*Math.sin(t)*Math.cos(t)/d]}
+function frame(){
+x.globalCompositeOperation='source-over';
+x.fillStyle='rgba(8,13,26,.16)';x.fillRect(0,0,W,H);
+x.globalCompositeOperation='lighter';
+P.forEach(function(p){
+if(!reduce)p.t+=p.s;
+var q=pt(p.t),col=Math.cos(p.t)>0?'46,230,166':'255,181,71';
+x.beginPath();x.arc(q[0],q[1],p.r,0,6.2832);
+x.fillStyle='rgba('+col+',.9)';x.shadowColor='rgba('+col+',.9)';x.shadowBlur=10;x.fill();
+});
+x.shadowBlur=0;
+if(!reduce)requestAnimationFrame(frame)
+}
+if(reduce){for(i=0;i<40;i++)frame()}else{frame()}
+
+document.getElementById('demo').addEventListener('submit',function(e){
+e.preventDefault();var f=e.target;
+var m='Hi Er. Soumyajit, I want to book a free demo at InfinitXLab.\nName: '+f.n.value+'\nPhone: '+f.p.value+'\nCourse: '+f.c.value+'\nMode: '+f.m.value;
+window.open('https://wa.me/919337789240?text='+encodeURIComponent(m),'_blank');
+});
+})();
+</script>
+</body>
+</html>
