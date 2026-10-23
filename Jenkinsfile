@@ -1,13 +1,7 @@
 pipeline {
   agent any
-  tools {
-    jdk 'JAVA_HOME'
-    maven 'M2_HOME'
-  }
+  
   stages {
-    stage('checkout') { 
-      steps { git 'https://github.com/Soumyajit-Rout/inifintxlab-landingpage.git' } 
-    }
     stage('compile')  { 
       steps { sh 'mvn compile' } 
     }
